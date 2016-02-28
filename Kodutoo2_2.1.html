@@ -1,0 +1,35 @@
+<!doctype HTML>
+<html lang="et">
+	<head>
+		<meta charset="utf-8">
+		<title>Kodutöö 2 ülesanne 2.1</title>
+	</head>
+	<body>
+		<form method="GET" action="Kodutoo2_2.1.html">	
+			Ees- ja perekonnanimi:
+			<input id="nimi" type="text" name="nimi" size="20" maxlength="50" placeholder="sisesta siia nimi"><br><br>
+			Sugu:
+			<label>
+				<input type="radio" name="sugu" value="mees" checked> Mees
+			</label>
+			<label>
+				<input type="radio" name="sugu" value="naine"> Naine <br><br>
+			</label>
+			Sünniaeg:
+			<input type="date" name="sunniaeg"><br><br>
+			Telefon: 
+			<input type="tel" name="telefon" placeholder="sisesta siia telefoni number"><br><br>
+			E-posti aadress: 
+			<input type="email" name="email" placeholder="sisesta siia e-posti aadress"><br><br>
+			Kasutustingimustega nõustumine:<br>
+			<label>
+				<input type="checkbox" name="noustumine" value="nous"> Olen nõus <br><br>
+			</label>
+			Kasutajanimi:
+			<input type="text" name="kasutajanimi" size="20" maxlength="20" placeholder="sisesta siia kasutajanimi"><br><br>
+			Parool:
+			<input type="password" name="parool" placeholder="sisesta siia parool"><br><br>
+			<button type="submit" onclick="alert('Vorm saadetud')">Saada</button>		
+		</form>
+	</body>
+</html>
