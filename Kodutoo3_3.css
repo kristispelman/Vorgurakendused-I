@@ -1,0 +1,76 @@
+p > img {
+	width: 600px;
+	height: 400px;
+}
+#pakskiri {
+	text-decoration: underline;
+	font-weight: bold;
+}
+body {
+	background-color: #cccccc;
+	font-size: 15px;
+	font-family: Tahoma, Geneva, sans-serif;
+	text-align: justify;
+	cursor: crosshair;
+}
+h1 {
+	color: #660099;	
+	font-size: 40px;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+h2 {
+	color: #000099;
+	background-color: #6699cc;
+	font-size: 25px;
+	font-family: Tahoma, Geneva, sans-serif;	
+}
+h3 {
+	color: #000099;
+	font-size: 22px;
+	font-family: Tahoma, Geneva, sans-serif;	
+	border-bottom: 1px solid #990099;
+}
+h4 {
+	color: #000099;	
+	font-size: 20px;
+	font-family: Tahoma, Geneva, sans-serif;	
+	border-bottom: 1px solid #990099;
+}
+h5 {
+	color: #000099;	
+	font-size: 15px;
+	font-family: Tahoma, Geneva, sans-serif;	
+	border-bottom: 1px solid #990099;
+}
+h6 {
+	color: #000099;	
+	font-size: 15px;
+	font-family: Tahoma, Geneva, sans-serif;	
+	border-bottom: 1px solid #990099;
+}
+.paragrahv {
+	border: 1px solid #999999;
+	border-radius: 6px;
+}
+.pilt {
+	border: 3px solid #990099;
+	border-radius: 6px;
+}
+ul {
+	list-style-type: square;
+}
+ol {
+	list-style-type: lower-alpha;
+}
+a {
+    color: #0066ff;
+}
+a:hover {
+    color: #990066;
+}
+img:hover {
+	border-color: #0066ff;
+}
+.pealkiri:hover {
+	background-color: #0066ff;
+}

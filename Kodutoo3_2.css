@@ -1,0 +1,30 @@
+#esimene {
+    color: green;
+}
+#teine{
+    text-decoration: underline;
+}
+#kolmas {
+    background-color: DarkSeaGreen;
+}
+#neljas {
+    font-size: 200%;
+}
+#viies {
+    font-family: monospace;
+}
+#kuues {
+    border: 3px solid black;
+	background-color: yellow;
+}
+#seitsmes {
+    border-radius: 5px;
+	border-style: dashed;
+}
+#kaheksas {
+    font-style: italic;
+	text-align: center;
+}
+#üheksas {
+    cursor: crosshair;
+}
