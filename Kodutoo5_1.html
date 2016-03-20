@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="et">
+   <head>
+		<meta charset="utf-8">
+		<title>Kodutöö 5 ülesanne 1</title>
+		<link rel="stylesheet" Type="text/css" href="http://enos.itcollege.ee/~kspelman/kodutoo4/Kodutoo4_1.css"/>
+		<script>
+			window.onload = function() {
+			var laud = document.getElementById('esimene');
+			laud.onclick=function(){
+				laud.style.top = Math.random() * 300 + 'px';
+				laud.style.left = Math.random() * 400 + 'px';
+			}
+		}	
+		</script>
+   </head>
+   <body>
+      <img src="http://enos.itcollege.ee/~ttanav/VRI/Kodused/04/duck.png" alt="part">
+      <div class="ring" id="esimene">
+         <div class="ring">
+         </div>
+         <div class="ring">
+         </div>
+         <div class="ring">
+         </div>
+         <div class="ring">
+         </div>
+         <div class="ring">
+         </div>
+         <div class="ring">
+         </div>
+      </div>
+
+   </body>
+</html>
