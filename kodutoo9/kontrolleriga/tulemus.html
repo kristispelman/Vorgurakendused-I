@@ -1,0 +1,9 @@
+<h3>Valiku tulemus</h3>
+<?php 
+	if (isset($_POST["foto"])&& $_POST["foto"]!="") {
+		echo'<p>Valisid pildi numbriga '.($_POST["foto"]).'</p>';
+    } else {
+		echo '<p>Pilt on valimata!</p>';
+	}	
+?>
+
