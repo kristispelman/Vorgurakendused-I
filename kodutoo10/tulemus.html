@@ -1,0 +1,20 @@
+<h3>Valiku tulemus</h3>
+<?php function endSession($event) {
+	if(isset($_POST["endSession"])) {
+		$_SESSION = array();
+		if (isset($_COOKIE[session_name()])) {
+			setcookie(session_name(), '', time()-42000, '/');
+		}
+		session_destroy();
+		header('Location: kontroller.php');
+	 }
+}
+?>
+<?php if (isset($_SESSION["voted_for"])): ?>
+	<h3>Pilt on valitud</h3>
+	<p>Valisid pildi numbriga: <?php echo $fotod[$_SESSION["voted_for"]]['value'];?><br>
+		<img src="<?php echo $fotod[$_SESSION["voted_for"]]['src'];?>"/></p>
+<?php endif; ?>
+<form method="post" action="?page=tulemus">
+	<input type="submit" name="endSession" value="Sulge sessioon" />
+</form>
