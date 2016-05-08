@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8" />
+	<style>
+	.puur {
+		border: solid gray 1px;
+		width: 	150px;
+	}	
+</style>
+	</head>
+	<body>
+	<div>
+	<?php foreach ($puurid as $number => $puur):?> 
+		<div class="puur">
+		<h1><?php echo "Puur number ".$number;?>  </h1>
+			<?php foreach($puur as $sisu):?>  
+			
+			 <img src=<?php echo "http://enos.itcollege.ee/~kspelman/kodutoo12/loomaaed/pildid/".$sisu["liik"] ;?> /> 
+			
+			<h6> <?php echo "Siin elab ".$sisu["vanus"]."-aastane ".$sisu["nimi"];?></h6>
+	<?php endforeach; ?>
+		</div>
+	<?php endforeach; ?>
+		
+	</div>
+	</body
+	
