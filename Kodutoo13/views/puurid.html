@@ -1,0 +1,11 @@
+<?php if (!empty($puurid)):?>
+	<?php foreach($puurid as $pid=>$puur): ?>
+		<div class="puur">
+			<h5>Puur <?php echo $pid; ?></h5>
+			<?php foreach($puur as $lid=>$loom): ?>
+				<img src="<?php echo $loom['liik']?>" alt="<?php echo $loom['nimi']?>">
+				<p><?php echo "Siin elab ".$loom['vanus']."-aastane ".$loom['nimi'];?></p>
+			<?php endforeach; ?>
+		</div>
+	<?php endforeach; ?>
+<?php endif;?>
