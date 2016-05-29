@@ -1,0 +1,66 @@
+body{
+	background: #F7F7F2;
+	color: #333333;
+	font-family: Arial, Sans-Serif;
+}
+.menyy {
+	background: #002046;
+	list-style-type: none;
+	font-size: 18px;
+	padding: 10px 0px;/*siselemenetide vaheline ruum*/ 
+	margin: 0px; /*välielementide vaheline ruum*/
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.menyy li {
+	width: 150px;
+	padding: 5px;
+	margin: 2px;
+	flex-grow: 1;
+}
+.menyy a{
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.menyy a:hover {
+	text-decoration: underline;
+}
+/*.menyy .valitud {
+	background-color: blue;
+	color: white;
+} -> JS-s teha*/
+
+.tabel {
+	position: relative;
+	top: 50px; /*vajalik nihutamiseks*/
+	border-spacing: 10px; /*kahe lahtri borderi vahe*/	
+}
+
+.tabel caption {
+	color: #002046;
+	font-weight: bold;
+	font-size: 110%
+}
+
+.tabel th, .tabel.td {
+	border-top: 0px solid #AAAAAA;
+	padding: 5px;	
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="date"], textarea, select {
+	padding: 5px 10px;
+	font-size: 13px;
+	border: 1px solid #AAAAAA;
+	border-radius:3px;
+	width: 150px;
+}
+
+div.autor {
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+}
+
