@@ -2,14 +2,11 @@
 require_once('funktsioonid.php');
 session_start();
 connect_db();
-
 $page="avaleht";
 if (isset($_GET['page']) && $_GET['page']!=""){
 	$page=htmlspecialchars($_GET['page']);
 }
-
 include_once('views/head.html');
-
 switch($page){
 	case "login":
 		logi();
@@ -29,12 +26,9 @@ switch($page){
 	case "muutmine":
 		muuda();
 	break;
-
 	default:
 		include_once('views/avaleht.html');
 	break;
 }
-
 include_once('views/foot.html');
-
 ?>

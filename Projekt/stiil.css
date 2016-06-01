@@ -1,14 +1,25 @@
-#sisse {
-	background: url('taustapilt.png') no-repeat center;
+.button {
+  font: bold 15px Arial;
+  background-color: #002046;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 1px solid;
+  padding: 5px 5px 5px 5px;
+}
+
+#taust {
+	background-image: url("taustapilt.png");
 	display: inline-block;
 	width: 100%;
-	padding:235px 0px;
-	text-align: center;
+	height: 250px; 
+	background-repeat: no-repeat;
 	text-decoration: none;
-	color: black;
+	padding: 235px 0px;
+	text-align: center;
+	color:  #000033;
 	font-weight: bold;
-	font-size: 30px;
-	text-shadow:0px 0px 10px black;
+	font-size: 45px;
+	text-shadow:0px 0px 20px #000033;
 }
 
 body{
@@ -16,12 +27,13 @@ body{
 	color: #333333;
 	font-family: Arial, Sans-Serif;
 }
+
 .menyy {
 	background: #002046;
 	list-style-type: none;
 	font-size: 18px;
-	padding: 10px 0px;/*siselemenetide vaheline ruum*/ 
-	margin: 0px; /*välielementide vaheline ruum*/
+	padding: 10px 0px;
+	margin: 0px;
 	display: flex;
 	flex-wrap: wrap;
 }
@@ -31,6 +43,7 @@ body{
 	padding: 5px;
 	margin: 2px;
 	flex-grow: 1;
+	  text-align: center;
 }
 .menyy a{
 	color: #FFFFFF;
@@ -42,14 +55,15 @@ body{
 	text-decoration: underline;
 }
 
+
 .tabel {
 	position: relative;
-	top: 50px; /*vajalik nihutamiseks*/
-	border-spacing: 10px; /*kahe lahtri borderi vahe*/
+	top: 150px; 
+	left: 150px;
+	border-spacing: 10px;
 }
 
 .tabel caption {
-	color: #002046;
 	font-weight: bold;
 	font-size: 110%
 }

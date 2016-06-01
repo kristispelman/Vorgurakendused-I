@@ -1,15 +1,55 @@
-<form action="?page=muutmine" method="POST" enctype="multipart/form-data">
-	<input type="text" name="nimetus" placeholder="nimetus" value="<?php if (isset($tooted['nimetus'])) echo htmlspecialchars($tooted['nimetus']); ?>"/><br/>
-	<select  name="kategooria">
-		<option value="valmistoode" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='valmistoode') echo 'selected' ;?>>Valmistoode</option>
-		<option value="tooraine" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='tooraine') echo 'selected' ;?>>Tooraine</option>
-		<option value="pakend" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='pakend') echo 'selected' ;?>>Pakend</option>
-	</select><br/>
-	<input name="id" type="hidden" value="<?php echo ($_GET["id"]) ?>" />
-	<input type="submit" value="Muuda"/> 
+<form action="?page=muutmine" method="POST" id="toode">
+	<table class="tabel">
+		<caption>Uued andmed: </caption>
+		<tr>
+			<th>
+				<label for="nimetus_id">Nimetus: </label>
+			</th>
+			<td>
+				<input id="nimetus_id" type="text" name="nimetus" placeholder="uus nimetus" value="<?php if (isset($tooted['nimetus'])) echo htmlspecialchars($tooted['nimetus']); ?>"/>
+			</td>
+		<tr>
+			<th>
+				<label for="kategooria_id">Kategooria: </label>
+			</th>
+			<td>
+				<select id="kategooria_id" name="kategooria">
+					<option value="valmistoode" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='valmistoode') echo 'selected' ;?>>Valmistoode</option>
+					<option value="tooraine" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='tooraine') echo 'selected' ;?>>Tooraine</option>
+					<option value="pakend" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='pakend') echo 'selected' ;?>>Pakend</option>
+				</select><br/>
+			</td>
+		<tr>
+			<th>
+				<label for="kogus_id">Kogus: </label>
+			</th>
+			<td>
+				<input id="kogus_id" type="number" name="kogus" placeholder="uus kogus" value="<?php if (isset($tooted['kogus'])) echo htmlspecialchars($tooted['kogus']); ?>"/>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<label for="kirjeldus_id">Kirjeldus: </label>
+			</th>
+			<td>
+				<textarea id="kirjeldus_id" type="text" name="kirjeldus" placeholder="uus kirjeldus" value="<?php if (isset($tooted['kirjeldus'])) echo htmlspecialchars($tooted['kirjeldus']); ?>"/></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input name="id" type="hidden" value="<?php echo ($_GET["id"]) ?>" />
+				<input class="button" type="submit" value="Muuda toodet"/> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php if (isset($errors)):?>
+				<?php foreach($errors as $error):?>
+					<div><?php echo htmlspecialchars($error); ?></div>
+				<?php endforeach;?>
+				<?php endif;?>
+			</td>
+		</tr>
+	</table>
 </form>
-<?php if (isset($errors)):?>
-		<?php foreach($errors as $error):?>
-			<div style="color:red;"><?php echo htmlspecialchars($error); ?></div>
-		<?php endforeach;?>
-<?php endif;?>
+<script src="ladu.js"></script>

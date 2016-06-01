@@ -6,18 +6,20 @@
 	<link rel="stylesheet" type="text/css" href="stiil.css">
 </head>
 <body>
-<table >
+<table>
 <div class="menyykast">
+	
 	<ul class="menyy">
 		<li><a href="?">Avaleht</a></li>
 		<?php if(isset($_SESSION['user'])): ?>
-		<li><a href="?page=tooted">Tooted</a></li>		
-		<?php if ($_SESSION['roll'] == 'admin') :?>
-			<li><a href="?page=lisa">Lisa toode</a></li>
-		<?php endif; ?>		
-		<li><a href="?page=logout">Logi välja</a></li>
+			<li><a href="?page=tooted">Tooted</a></li>
+
+			<?php if ($_SESSION['roll'] == 'admin') :?>
+				<li><a href="?page=lisa">Lisa toode</a></li>
+			<?php endif; ?>
+
+			<li><a href="?page=logout">Logi välja</a></li>
 		<?php else: ?>
 			<li><a href="?page=login">Logi sisse</a></li>
 		<?php endif; ?>
 	</ul>
-	<div id="content">

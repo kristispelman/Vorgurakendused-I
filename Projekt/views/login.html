@@ -1,12 +1,34 @@
-<div id="login">
-	<form action="?page=login" method="POST" >
-		<input type="text" name="user" placeholder="kasutajanimi"/><br/>
-		<input type="password" name="pass" placeholder="parool"/><br/>
-		<input type="submit" value="logi sisse!"/>
-	</form>
-	<?php if (isset($errors)):?>
-		<?php foreach($errors as $error):?>
-			<div style="color:red;"><?php echo htmlspecialchars($error); ?></div>
-		<?php endforeach;?>
-	<?php endif;?>
-</div>
+<form action="?page=login" method="POST">
+	<table class="tabel">
+		<caption>Sisselogimise vorm</caption>
+		<tr>
+			<th>
+				<label for="kasutajanimi_id">Kasutajanimi: </label>
+			</th>
+			<td>
+				<input type="text" name="user" placeholder="kasutajanimi"/><br/>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<label for="parool_id">Parool: </label>
+			</th>
+			<td>
+				<input type="password" name="pass" placeholder="parool"/><br/>
+			</td>
+		<tr>
+			<td colspan="2">
+				<input class="button" type="submit" value="Logi sisse"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php if (isset($errors)):?>
+					<?php foreach($errors as $error):?>
+						<div><?php echo htmlspecialchars($error); ?></div>
+					<?php endforeach;?>
+				<?php endif;?>
+			</td>
+		</tr>
+	</table>
+</form>

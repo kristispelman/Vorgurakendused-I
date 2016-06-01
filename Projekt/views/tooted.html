@@ -9,9 +9,7 @@
 		<th>Kirjeldus</th>
 	<tr>
 </thead>
-
 	<tbody>
-
 		<?php if (!empty($tooted)): ?>
 			<?php foreach ($tooted as $id=>$toode): ?>
 				<tr>
@@ -33,9 +31,11 @@
 					<td>
 						<form method="post" action="?page=kustutamine">
 							<input type="hidden" name="tooteId" value="<?= $toode['id']; ?>">
-							<button type="submit">Kustuta toode</button>
+							<button class="button" type="submit">Kustuta toode</button>
 						</form>
-						<a href="<?php echo '?page=muutmine&id='.$toode['id']; ?>">Muuda toodet<a/>
+					</td>
+					<td>					
+						<a class="button" href="<?php echo '?page=muutmine&id='.$toode['id']; ?>">Muuda toodet<a/>
 					</td>
 				</tr>
 			<?php endforeach; ?>
