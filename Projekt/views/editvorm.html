@@ -1,0 +1,15 @@
+<form action="?page=muutmine" method="POST" enctype="multipart/form-data">
+	<input type="text" name="nimetus" placeholder="nimetus" value="<?php if (isset($tooted['nimetus'])) echo htmlspecialchars($tooted['nimetus']); ?>"/><br/>
+	<select  name="kategooria">
+		<option value="valmistoode" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='valmistoode') echo 'selected' ;?>>Valmistoode</option>
+		<option value="tooraine" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='tooraine') echo 'selected' ;?>>Tooraine</option>
+		<option value="pakend" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='pakend') echo 'selected' ;?>>Pakend</option>
+	</select><br/>
+	<input name="id" type="hidden" value="<?php echo ($_GET["id"]) ?>" />
+	<input type="submit" value="Muuda"/> 
+</form>
+<?php if (isset($errors)):?>
+		<?php foreach($errors as $error):?>
+			<div style="color:red;"><?php echo htmlspecialchars($error); ?></div>
+		<?php endforeach;?>
+<?php endif;?>

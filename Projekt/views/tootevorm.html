@@ -1,0 +1,14 @@
+<form action="?page=lisa" method="POST" >
+	<input type="text" name="nimetus" placeholder="nimetus" value="<?php if (isset($toode['nimetus'])) echo htmlspecialchars($toode['nimetus']); ?>"/><br/>
+	<select  name="kategooria">
+		<option value="valmistoode" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='valmistoode') echo 'selected' ;?>>Valmistoode</option>
+		<option value="tooraine" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='tooraine') echo 'selected' ;?>>Tooraine</option>
+		<option value="pakend" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='pakend') echo 'selected' ;?>>Pakend</option>
+	</select><br/>
+	<input type="submit" value="Lisa"/> 
+</form>
+<?php if (isset($errors)):?>
+	<?php foreach($errors as $error):?>
+		<div style="color:red;"><?php echo htmlspecialchars($error); ?></div>
+	<?php endforeach;?>
+<?php endif;?>
