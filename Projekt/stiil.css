@@ -1,3 +1,16 @@
+#sisse {
+	background: url('taustapilt.png') no-repeat center;
+	display: inline-block;
+	width: 100%;
+	padding:235px 0px;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	font-size: 30px;
+	text-shadow:0px 0px 10px black;
+}
+
 body{
 	background: #F7F7F2;
 	color: #333333;
@@ -28,15 +41,11 @@ body{
 .menyy a:hover {
 	text-decoration: underline;
 }
-/*.menyy .valitud {
-	background-color: blue;
-	color: white;
-} -> JS-s teha*/
 
 .tabel {
 	position: relative;
 	top: 50px; /*vajalik nihutamiseks*/
-	border-spacing: 10px; /*kahe lahtri borderi vahe*/	
+	border-spacing: 10px; /*kahe lahtri borderi vahe*/
 }
 
 .tabel caption {
