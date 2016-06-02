@@ -6,7 +6,7 @@
 				<label for="kasutajanimi_id">Kasutajanimi: </label>
 			</th>
 			<td>
-				<input type="text" name="user" placeholder="kasutajanimi"/><br/>
+				<input type="text" name="user" id="kasutajanimi_id" placeholder="kasutajanimi">
 			</td>
 		</tr>
 		<tr>
@@ -14,15 +14,16 @@
 				<label for="parool_id">Parool: </label>
 			</th>
 			<td>
-				<input type="password" name="pass" placeholder="parool"/><br/>
-			</td>
-		<tr>
-			<td colspan="2">
-				<input class="button" type="submit" value="Logi sisse"/>
+				<input type="password" name="pass" id="parool_id" placeholder="parool">
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td colspan="2">
+				<input class="button" type="submit" value="Logi sisse">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
 				<?php if (isset($errors)):?>
 					<?php foreach($errors as $error):?>
 						<div><?php echo htmlspecialchars($error); ?></div>

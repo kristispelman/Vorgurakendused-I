@@ -1,14 +1,14 @@
 <table id="tooted" class="tabel">
 	<caption>Tooted</caption>
-<thead>
-	<tr>
-		<th>Nimetus</th>
-		<th>Kategooria</th>
-		<th>Kogus</th>
-		<th>Muutmise aeg</th>
-		<th>Kirjeldus</th>
-	<tr>
-</thead>
+	<thead>
+		<tr>
+			<th>Nimetus</th>
+			<th>Kategooria</th>
+			<th>Kogus</th>
+			<th>Muutmise aeg</th>
+			<th>Kirjeldus</th>
+		<tr>
+	</thead>
 	<tbody>
 		<?php if (!empty($tooted)): ?>
 			<?php foreach ($tooted as $id=>$toode): ?>
@@ -35,7 +35,7 @@
 						</form>
 					</td>
 					<td>					
-						<a class="button" href="<?php echo '?page=muutmine&id='.$toode['id']; ?>">Muuda toodet<a/>
+						<a class="button" href="<?php echo '?page=muutmine&id='.$toode['id']; ?>">Muuda toodet</a>
 					</td>
 				</tr>
 			<?php endforeach; ?>

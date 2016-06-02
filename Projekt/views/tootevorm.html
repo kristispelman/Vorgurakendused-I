@@ -6,9 +6,10 @@
 				<label for="nimetus_id">Nimetus: </label>
 			</th>
 			<td>
-				<input type="text" name="nimetus" placeholder="sisesta nimetus" value="<?php if (isset($toode['nimetus'])) echo htmlspecialchars($toode['nimetus']); ?>"/>
+				<input id="nimetus_id" type="text" name="nimetus" placeholder="sisesta nimetus" value="<?php if (isset($toode['nimetus'])) echo htmlspecialchars($toode['nimetus']); ?>">
 			</td>
 		</tr>
+		<tr>
 			<th>
 				<label for="kategooria_id">Kategooria: </label>
 			</th>
@@ -20,27 +21,29 @@
 				</select>
 			</td>
 		</tr>
+		<tr>
 			<th>
 				<label for="kogus_id">Kogus: </label>
 			</th>
 			<td>
-				<input id="kogus_id" type="number" name="kogus" placeholder="sisesta kogus" value="<?php if (isset($toode['kogus'])) echo htmlspecialchars($toode['kogus']); ?>"/>
+				<input id="kogus_id" type="number" name="kogus" placeholder="sisesta kogus" value="<?php if (isset($toode['kogus'])) echo htmlspecialchars($toode['kogus']); ?>">
 			</td>
 		</tr>
+		<tr>
 			<th>
 				<label for="kirjeldus_id">Kirjeldus: </label>
 			</th>
 			<td>
-				<textarea id="kirjeldus_id" type="text" name="kirjeldus" placeholder="sisesta kirjeldus" value="<?php if (isset($toode['kirjeldus'])) echo htmlspecialchars($toode['kirjeldus']); ?>"/></textarea>
+				<textarea id="kirjeldus_id" name="kirjeldus" placeholder="sisesta kirjeldus" value="<?php if (isset($toode['kirjeldus'])) echo htmlspecialchars($toode['kirjeldus']); ?>"></textarea>
 			</td>
 		</tr>
 		<tr>
-			<td>
-				<input class="button" type="submit" value="Lisa toode"/> 
+			<td colspan="2">
+				<input class="button" type="submit" value="Lisa toode"> 
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td colspan="2">
 				<?php if (isset($errors)):?>
 					<?php foreach($errors as $error):?>
 						<div><?php echo htmlspecialchars($error); ?></div>
@@ -49,5 +52,5 @@
 			</td>
 		</tr>
 	</table>
-</form>
 <script src="ladu.js"></script>
+</form>

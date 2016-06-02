@@ -6,8 +6,9 @@
 				<label for="nimetus_id">Nimetus: </label>
 			</th>
 			<td>
-				<input id="nimetus_id" type="text" name="nimetus" placeholder="uus nimetus" value="<?php if (isset($tooted['nimetus'])) echo htmlspecialchars($tooted['nimetus']); ?>"/>
+				<input id="nimetus_id" type="text" name="nimetus" placeholder="uus nimetus" value="<?php if (isset($tooted['nimetus'])) echo htmlspecialchars($tooted['nimetus']); ?>">
 			</td>
+		</tr>
 		<tr>
 			<th>
 				<label for="kategooria_id">Kategooria: </label>
@@ -17,14 +18,15 @@
 					<option value="valmistoode" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='valmistoode') echo 'selected' ;?>>Valmistoode</option>
 					<option value="tooraine" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='tooraine') echo 'selected' ;?>>Tooraine</option>
 					<option value="pakend" <?php if (!empty($_POST['kategooria']) && $_POST['kategooria']=='pakend') echo 'selected' ;?>>Pakend</option>
-				</select><br/>
+				</select>
 			</td>
+		</tr>
 		<tr>
 			<th>
 				<label for="kogus_id">Kogus: </label>
 			</th>
 			<td>
-				<input id="kogus_id" type="number" name="kogus" placeholder="uus kogus" value="<?php if (isset($tooted['kogus'])) echo htmlspecialchars($tooted['kogus']); ?>"/>
+				<input id="kogus_id" type="number" name="kogus" placeholder="uus kogus" value="<?php if (isset($tooted['kogus'])) echo htmlspecialchars($tooted['kogus']); ?>">
 			</td>
 		</tr>
 		<tr>
@@ -32,17 +34,17 @@
 				<label for="kirjeldus_id">Kirjeldus: </label>
 			</th>
 			<td>
-				<textarea id="kirjeldus_id" type="text" name="kirjeldus" placeholder="uus kirjeldus" value="<?php if (isset($tooted['kirjeldus'])) echo htmlspecialchars($tooted['kirjeldus']); ?>"/></textarea>
+				<textarea id="kirjeldus_id" name="kirjeldus" placeholder="uus kirjeldus" value="<?php if (isset($tooted['kirjeldus'])) echo htmlspecialchars($tooted['kirjeldus']); ?>"></textarea>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input name="id" type="hidden" value="<?php echo ($_GET["id"]) ?>" />
-				<input class="button" type="submit" value="Muuda toodet"/> 
+				<input name="id" type="hidden" value="<?php echo ($_GET['id']) ?>">
+				<input class="button" type="submit" value="Muuda toodet"> 
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td colspan="2">
 				<?php if (isset($errors)):?>
 				<?php foreach($errors as $error):?>
 					<div><?php echo htmlspecialchars($error); ?></div>
@@ -51,5 +53,5 @@
 			</td>
 		</tr>
 	</table>
-</form>
 <script src="ladu.js"></script>
+</form>

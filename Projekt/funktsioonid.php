@@ -53,7 +53,7 @@ function logi(){
 function logout(){
 	$_SESSION=array();
 	session_destroy();
-	include_once('views/avaleht.html');
+	header("Location: http://enos.itcollege.ee/~kspelman/Projekt/ladu.php");
 }
 
 function lisa(){
