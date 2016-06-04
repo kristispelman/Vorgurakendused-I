@@ -79,11 +79,9 @@ function lisa(){
 			$nimetus = mysqli_real_escape_string($connection, htmlspecialchars($_POST["nimetus"]));
 			$kategooria = mysqli_real_escape_string($connection, htmlspecialchars($_POST["kategooria"]));
 			$kogus = mysqli_real_escape_string($connection, htmlspecialchars($_POST["kogus"]));
-			$kirjeldus = mysqli_real_escape_string($connection, htmlspecialchars($_POST["kirjeldus"]));
-			
+			$kirjeldus = mysqli_real_escape_string($connection, htmlspecialchars($_POST["kirjeldus"]));		
 			$sql = "INSERT INTO kspelman_tooted (nimetus, kategooria, kogus, kirjeldus, muutmisekuupaev) VALUES ('$nimetus','$kategooria', '$kogus', '$kirjeldus', curdate())";
-			$result = mysqli_query($connection, $sql) or die("Päring ebaõnnestus");
-			
+			$result = mysqli_query($connection, $sql) or die("Päring ebaõnnestus");	
 			if ($result){
 				if (mysqli_insert_id($connection) > 0) {
 					header("Location: ?page=tooted");
@@ -116,11 +114,11 @@ function muuda(){
 		}
 		if (empty($errors)) {
 			global $connection;
-			$id = $_POST['id'];
-			$nimetus = $_POST['nimetus'];
-			$kategooria = $_POST['kategooria'];
-			$kogus = $_POST['kogus'];
-			$kirjeldus = $_POST['kirjeldus'];
+			$id = mysqli_real_escape_string($connection, htmlspecialchars($_POST["id"]));
+			$nimetus = mysqli_real_escape_string($connection, htmlspecialchars($_POST["nimetus"]));
+			$kategooria = mysqli_real_escape_string($connection, htmlspecialchars($_POST["kategooria"]));
+			$kogus = mysqli_real_escape_string($connection, htmlspecialchars($_POST["kogus"]));
+			$kirjeldus = mysqli_real_escape_string($connection, htmlspecialchars($_POST["kirjeldus"]));			
 			$sql = "UPDATE kspelman_tooted SET nimetus='".$nimetus."', kategooria='".$kategooria."', kogus='".$kogus."', kirjeldus='".$kirjeldus."', muutmisekuupaev=curdate() WHERE id=".$id;
 			$result = mysqli_query($connection, $sql) or die("Päring ebaõnnestus");
 			header("Location: ?page=tooted");
@@ -140,7 +138,6 @@ function kustuta(){
 			$sql = "DELETE FROM kspelman_tooted WHERE id = ('$id')";
 			$result = mysqli_query($connection, $sql) or die("Päring ebaõnnestus");		
 			if ($result){
-				
 				header("Location: ?page=tooted");
 				exit(0);			
 			}
