@@ -23,6 +23,9 @@ switch($page){
 	case "kustutamine":
 		kustuta();
 	break;
+	case "kuva_toode":
+		kuva_toode();
+	break;
 	case "muutmine":
 		muuda();
 	break;

@@ -7,7 +7,7 @@ function connect_db(){
 	$pass="t3st3r123";
 	$db="test";
 	$connection = mysqli_connect($host, $user, $pass, $db) or die("ei saa ühendust mootoriga- ".mysqli_error());
-	mysqli_query($connection, "SET CHARACTER SET UTF8") or die("Ei saanud baasi utf-8-sse - ".mysqli_error($connection));
+	mysqli_query($connection, "SET CHARACTER SET UTF8") or die("Ei saanud andmebbaasiga - ".mysqli_error($connection));
 }
 
 function kuva_tooted(){
@@ -25,27 +25,27 @@ function kuva_tooted(){
 
 function logi(){ 
 	if (isset($_SERVER['REQUEST_METHOD']) &&  $_SERVER['REQUEST_METHOD'] == 'POST') {
-			$errors = array();
-			if (empty($_POST['user'])) {
-				$errors[] = "Palun sisesta kasutajanimi!";
+		$errors = array();
+		if (empty($_POST['user'])) {
+			$errors[] = "Palun sisesta kasutajanimi!";
+		}
+		if (empty($_POST['pass'])) {
+			$errors[] = "Palun sisesta parool!";
+		}
+		if (empty($errors)) {
+			global $connection;
+			$user = mysqli_real_escape_string($connection, $_POST["user"]);
+			$pass = mysqli_real_escape_string($connection, $_POST["pass"]);
+			$sql = "SELECT * FROM kspelman_kylastajad WHERE username='$user' AND passw=SHA1('$pass')";
+			$result = mysqli_query($connection, $sql);
+			if (mysqli_num_rows($result) >= 1) {
+				$row = mysqli_fetch_assoc($result);
+				$roll = $row['roll'];
+				$_SESSION['roll'] = $roll;
+				$_SESSION['user'] = $row['username'];
+				header("Location: ?page=tooted");
 			}
-			if (empty($_POST['pass'])) {
-				$errors[] = "Palun sisesta parool!";
-			}
-			if (empty($errors)) {
-				global $connection;
-				$user = mysqli_real_escape_string($connection, $_POST["user"]);
-				$pass = mysqli_real_escape_string($connection, $_POST["pass"]);
-				$sql = "SELECT * FROM kspelman_kylastajad WHERE username='$user' AND passw=SHA1('$pass')";
-				$result = mysqli_query($connection, $sql);
-				if (mysqli_num_rows($result) >= 1) {
-					$row = mysqli_fetch_assoc($result);
-					$roll = $row['roll'];
-					$_SESSION['roll'] = $roll;
-					$_SESSION['user'] = $row['username'];
-					header("Location: ?page=tooted");
-				}
-			}
+		}
 	}
 	include_once('views/login.html');
 }
@@ -60,6 +60,7 @@ function lisa(){
 	if (empty($_SESSION['user']) || $_SESSION['roll'] != 'admin') {
 		header("Location: ?page=login");
 	}
+	global $connection;
 	if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		$errors = array();
 		if (empty($_POST['nimetus'])) {
@@ -75,7 +76,6 @@ function lisa(){
 			$errors[] = "Palun sisesta kirjeldus!";
 		}	
 		if (empty($errors)) {
-			global $connection;
 			$nimetus = mysqli_real_escape_string($connection, htmlspecialchars($_POST["nimetus"]));
 			$kategooria = mysqli_real_escape_string($connection, htmlspecialchars($_POST["kategooria"]));
 			$kogus = mysqli_real_escape_string($connection, htmlspecialchars($_POST["kogus"]));
@@ -93,7 +93,27 @@ function lisa(){
 	include_once('views/tootevorm.html');
 }
 
+function kuva_toode(){
+	if (empty($_SESSION['user'])) {
+		header("Location: ?page=login");
+	}
+	global $connection;
+	if (!empty($_GET["id"])){		
+		$sql = "SELECT * FROM kspelman_tooted WHERE id = ".$_GET["id"];
+		$result = mysqli_query($connection, $sql) or die ("Päring ebaõnnestus");		
+		$toode = mysqli_fetch_assoc($result);
+		include_once('views/editvorm.html');
+	} else {
+		header("Location: ?page=tooted");
+	}
+	include_once('views/editvorm.html');
+}
+
 function muuda(){
+
+	if (empty($_SESSION['user'])) {
+		header("Location: ?page=login");
+	}
 	global $connection;
 	if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset( $_GET['id'] ) && $_GET['id'] != "") {
 		$id = $_GET['id'];	
@@ -129,7 +149,7 @@ function muuda(){
 }
 
 function kustuta(){
-	if (empty($_SESSION['user']) || $_SESSION['roll'] != 'admin') {
+	if (empty($_SESSION['user'])) {
 		header("Location: ?page=login");
 	}
 	if ($_SERVER['REQUEST_METHOD'] == "POST") {	
@@ -142,5 +162,6 @@ function kustuta(){
 				exit(0);			
 			}
 		}
-	}
+	include_once('views/tooted.html');
+}
 ?>
