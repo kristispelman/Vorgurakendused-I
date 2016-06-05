@@ -15,11 +15,17 @@ function kuva_tooted(){
 		header("Location: ?page=login");
 	}
 	global $connection;
-	$p= mysqli_query($connection, "select * from kspelman_tooted");
-	$tooted=array();		
+	$p = mysqli_query($connection, "select * from kspelman_tooted");
+	$tooted = array();
+	$read = mysqli_num_rows($p);
+	for ($i=0; $i<$read; $i++){
+		$tooted[]= mysqli_fetch_assoc($p);
+	}
+	/*)
 	while ($row=mysqli_fetch_assoc($p)) {
 		$tooted[]=$row;
 }	
+*/
 	include_once('views/tooted.html');
 }
 
