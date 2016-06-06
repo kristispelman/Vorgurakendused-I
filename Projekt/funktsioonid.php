@@ -6,7 +6,7 @@ function connect_db(){
 	$user="test";
 	$pass="t3st3r123";
 	$db="test";
-	$connection = mysqli_connect($host, $user, $pass, $db) or die("ei saa ühendust mootoriga- ".mysqli_error());
+	$connection = mysqli_connect($host, $user, $pass, $db) or die("Ei saa ühendust andmebasiga - ".mysqli_error());
 	mysqli_query($connection, "SET CHARACTER SET UTF8") or die("Ei saanud andmebbaasiga - ".mysqli_error($connection));
 }
 
@@ -21,11 +21,6 @@ function kuva_tooted(){
 	for ($i=0; $i<$read; $i++){
 		$tooted[]= mysqli_fetch_assoc($p);
 	}
-	/*)
-	while ($row=mysqli_fetch_assoc($p)) {
-		$tooted[]=$row;
-}	
-*/
 	include_once('views/tooted.html');
 }
 
@@ -104,8 +99,9 @@ function kuva_toode(){
 		header("Location: ?page=login");
 	}
 	global $connection;
-	if (!empty($_GET["id"])){		
-		$sql = "SELECT * FROM kspelman_tooted WHERE id = ".$_GET["id"];
+	if (!empty($_GET["id"])){
+		$id = $_GET["id"];	
+		$sql = "SELECT * FROM kspelman_tooted WHERE id = ".$id;
 		$result = mysqli_query($connection, $sql) or die ("Päring ebaõnnestus");		
 		$toode = mysqli_fetch_assoc($result);
 		include_once('views/editvorm.html');
@@ -116,31 +112,45 @@ function kuva_toode(){
 }
 
 function muuda(){
-
 	if (empty($_SESSION['user'])) {
 		header("Location: ?page=login");
 	}
 	global $connection;
-	if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset( $_GET['id'] ) && $_GET['id'] != "") {
-		$id = $_GET['id'];	
-	}
-	if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nimetus'])) {
+	if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['id'] ) && $_POST['id'] != "") {
+		$id = $_POST['id'];	
+		if (!empty($_POST["id"])){		
+			$sql = "SELECT * FROM kspelman_tooted WHERE id = ".$id;
+			$result = mysqli_query($connection, $sql) or die ("Päring ebaõnnestus");		
+			$toode = mysqli_fetch_assoc($result);
+		}
 		$errors = array();
 		if (empty($_POST['nimetus'])) {
 			$errors[] = "Palun sisesta nimetus!";
-		}
+			$toode['nimetus'] = '';
+		}	else {
+			$toode['nimetus'] = $_POST['nimetus'];
+		};
 		if (empty($_POST['kategooria'])) {
 			$errors[] = "Palun sisesta kategooria!";
-		}
-		if (empty($_POST['kogus'])) {
+			$toode['kategooria'] = '';
+		}	else {
+			$toode['kategooria'] = $_POST['kategooria'];
+		};
+		if (!isset($_POST['kogus']) || $_POST['kogus'] == "") {
 			$errors[] = "Palun sisesta kogus!";
-		}	
+			$toode['kogus'] = '';
+		}	else {
+			$toode['kogus'] = $_POST['kogus'];
+		};
 		if (empty($_POST['kirjeldus'])) {
 			$errors[] = "Palun sisesta kirjeldus!";
-		}
+			$toode['kirjeldus'] = '';
+		} 	else {
+			$toode['kirjeldus'] = $_POST['kirjeldus'];
+		};
 		if (empty($errors)) {
 			global $connection;
-			$id = mysqli_real_escape_string($connection, htmlspecialchars($_POST["id"]));
+			$id = mysqli_real_escape_string($connection, htmlspecialchars($id));
 			$nimetus = mysqli_real_escape_string($connection, htmlspecialchars($_POST["nimetus"]));
 			$kategooria = mysqli_real_escape_string($connection, htmlspecialchars($_POST["kategooria"]));
 			$kogus = mysqli_real_escape_string($connection, htmlspecialchars($_POST["kogus"]));
@@ -150,6 +160,10 @@ function muuda(){
 			header("Location: ?page=tooted");
 			exit(0);
 		}
+	}
+	else {
+		header("Location: ?page=tooted");
+		exit(0);
 	}
 	include_once('views/editvorm.html');
 }

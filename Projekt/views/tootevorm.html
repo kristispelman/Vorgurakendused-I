@@ -34,7 +34,7 @@
 				<label for="kirjeldus_id">Kirjeldus: </label>
 			</th>
 			<td>
-				<textarea id="kirjeldus_id" name="kirjeldus" placeholder="sisesta kirjeldus" value="<?php if (isset($toode['kirjeldus'])) echo htmlspecialchars($toode['kirjeldus']); ?>"></textarea>
+				<textarea id="kirjeldus_id" name="kirjeldus" placeholder="sisesta kirjeldus"><?php if (isset($toode['kirjeldus'])) echo htmlspecialchars($toode['kirjeldus']); ?></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -52,5 +52,5 @@
 			</td>
 		</tr>
 	</table>
-<script src="ladu.js"></script>
 </form>
+<script src="ladu.js"></script>
