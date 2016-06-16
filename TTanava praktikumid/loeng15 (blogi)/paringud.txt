@@ -1,0 +1,22 @@
+CREATE TABLE Bkasutajad (
+id INTEGER PRIMARY KEY auto_increment,
+username VARCHAR(100) UNIQUE,
+passwd VARCHAR(50),
+role ENUM('poster', 'user') DEFAULT 'user'
+);
+
+CREATE TABLE Bpostitused (
+id INTEGER PRIMARY KEY auto_increment,
+kasutaja_id INTEGER,
+content VARCHAR(10000), 
+title VARCHAR(200),
+postedat DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Bkommentaarid (
+id INTEGER PRIMARY KEY auto_increment,
+kasutaja_id INTEGER,
+postitus_id INTEGER,
+content VARCHAR(500),
+postedat DATETIME DEFAULT CURRENT_TIMESTAMP
+);

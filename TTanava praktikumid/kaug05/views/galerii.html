@@ -1,0 +1,22 @@
+
+<h1>Galerii</h1>
+<div id="galerii">
+
+	<?php foreach($pildid as $v6ti => $v22rtus): ?>
+		<a href="<?php echo $v22rtus['big']; ?>"><img src="<?php echo $v22rtus['small']; ?>" alt="<?php echo $v22rtus['alt']; ?>"/></a>
+	<?php endforeach; ?>
+
+</div>
+<div id="hoidja" style="display:none;">
+  <div id="taust"></div>
+  <div id="tabel">
+    <div id="cell">
+      <div id="sulge" onclick="hideDetails();">Sulge</div>
+      <div id="sisu">
+        <img id="suurpilt" src="Pictures/sign.jpg" alt="ajutine"/><br/>
+        <span id="inf"></span>
+      </div>
+    </div>
+  </div>
+</div>
+

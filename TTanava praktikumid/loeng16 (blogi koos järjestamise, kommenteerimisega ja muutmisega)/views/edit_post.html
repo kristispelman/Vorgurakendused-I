@@ -1,0 +1,13 @@
+<form action="?page=edit&id=<?php echo $id;?>" method="POST">
+<input type="text" placeholder="pealkiri" name="title" value="<?php if (!empty($post['title'])) echo htmlspecialchars($post['title']);?>"/><br/>
+
+<textarea name="content" rows="10" cols="60"><?php if (!empty($post['content'])) echo htmlspecialchars($post['content']);?></textarea><br/>
+
+<input type="submit" value="muuda"/>
+</form>
+
+<?php if(!empty($errors)):
+	foreach($errors as $e):?>
+		<p style="color:red"><?php echo $e; ?></p>
+<?php	endforeach;
+endif;?>

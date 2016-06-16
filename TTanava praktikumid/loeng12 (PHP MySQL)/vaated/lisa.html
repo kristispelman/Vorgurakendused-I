@@ -1,0 +1,32 @@
+<form action="?mode=lisa" method="post">
+<b>Nimi:</b><br/>
+<input type="text" name="nimi" value="<?php if (!empty($_POST['nimi'])) echo htmlspecialchars($_POST['nimi']);?>" /> <br/>
+
+<b>Liik:</b><br/>
+<select name="pilt">
+	<option value="pildid/monkey.png" <?php if (!empty($_POST['pilt']) && $_POST['pilt']=='pildid/monkey.png') echo 'selected';?>>Ahv</option>
+<option value="pildid/rabbit.png" <?php if (!empty($_POST['pilt']) && $_POST['pilt']=='pildid/rabbit.png') echo 'selected';?>>Jänes</option>
+	<option value="pildid/bear.png" <?php if (!empty($_POST['pilt']) && $_POST['pilt']=='pildid/bear.png') echo 'selected';?>>Karu</option>
+	<option value="pildid/cat.png" <?php if (!empty($_POST['pilt']) && $_POST['pilt']=='pildid/cat.png') echo 'selected';?>>Kass</option>
+	<option value="pildid/cow.png" <?php if (!empty($_POST['pilt']) && $_POST['pilt']=='pildid/cow.png') echo 'selected';?>>Lehm</option>
+</select>
+ <br/>
+
+<b>Treener:</b><br/>
+<select name="treener_id">
+	<option value="1" <?php if (!empty($_POST['treener_id']) && $_POST['treener_id']==1) echo 'selected';?>>Boss</option>
+	<option value="2" <?php if (!empty($_POST['treener_id']) && $_POST['treener_id']==2) echo 'selected';?>>Treener1</option>
+</select>
+ <br/>
+
+<b>Oskused:</b><br/>
+<textarea name="oskused"><?php if (!empty($_POST['oskused'])) echo htmlspecialchars($_POST['oskused']);?></textarea> <br/>
+<input type="submit" value="Lisa"/>
+</form>
+<?php if (!empty($errors)):
+	foreach($errors as $e):
+		echo "$e <br/>";
+	endforeach;
+endif;
+?>
+

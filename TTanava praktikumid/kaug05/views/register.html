@@ -1,0 +1,47 @@
+<h1>Registreeru</h1>
+<form action="kontroller.php?mode=register" method="POST">
+  <table>
+    <tr>
+      <td>Kasutajanimi:</td>
+      <td><input type="text" name="username" value="<?php if (isset($_POST['username'])) echo htmlspecialchars($_POST['username']); ?>"/>
+				<span style="color:red;">
+					<?php if (isset($errors['user'])) echo htmlspecialchars($errors['user']); ?>
+				</span>
+			</td>
+    </tr>
+    <tr>
+      <td>parool:</td>
+      <td><input type="password" name="passwd"/>
+				<span style="color:red;">
+					<?php if (isset($errors['pass'])) echo $errors['pass']; ?>
+				</span>
+			</td>
+    </tr>
+    <tr>
+      <td>parool uuesti:</td>
+      <td><input type="password" name="passwd2"/>
+				<span style="color:red;">
+					<?php if (isset($errors['pass2'])) echo $errors['pass2'];
+								if (isset($errors['match'])) echo $errors['match'];
+						 ?>
+				</span>
+			</td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="registreeru"/>
+				<span style="color:red;">
+					<?php if (isset($errors['viga'])) echo htmlspecialchars($errors['viga']); ?> 
+				</span>
+			</td>
+    </tr>
+  </table>
+</form>
+
+
+
+
+
+
+
+
+

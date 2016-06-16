@@ -1,0 +1,31 @@
+﻿<!-- siin kuvatakse positituse sisu -->
+<div id="postitus">
+<h1><?php echo htmlspecialchars($post['title']);?></h1>
+<b>Postitaja:</b> <?php echo htmlspecialchars($post['postitaja']);?> 
+<b>Postitamise aeg:</b> <?php echo htmlspecialchars($post['postedat']);?>
+<pre><?php echo htmlspecialchars($post['content']);?></pre>
+</div>
+
+<!-- siin kuvatakse kommentaaride nimekiri -->
+<h1 id="kommentaarid">Kommentaarid:</h1>
+<?php if(!empty($kommid)):
+	foreach($kommid as $k):?>
+		<div class="comment">
+			<b><?php echo htmlspecialchars($k['kommenteerija']);?></b> ütles:
+			<pre><?php echo htmlspecialchars($k['content']);?></pre>
+			@ <?php echo htmlspecialchars($k['postedat']);?>
+		</div>
+<?php	endforeach;
+endif;?>
+
+<!-- siin toimub uue kommentaari lisamine -->
+<form action="?page=post&id=<?php echo $_GET['id']; ?>" method="POST">
+	<textarea name="content" rows="8" cols="60"><?php if (!empty($_POST['content'])) echo htmlspecialchars($_POST['content']);?></textarea>
+	<br/>
+	<input type="submit" value="Kommenteeri"/>
+</form>
+<?php if(!empty($errors)):
+	foreach($errors as $e):?>
+		<p style="color:red"><?php echo $e; ?></p>
+<?php	endforeach;
+endif;?>

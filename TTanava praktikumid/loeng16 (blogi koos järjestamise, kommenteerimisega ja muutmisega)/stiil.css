@@ -1,0 +1,39 @@
+body {background:#c0c0c0; margin:0;}
+
+a {
+	font-weight:bold; color:grey; text-decoration:none;
+}
+a:hover {
+	color:black;
+}
+
+#wrap{ width:700px; margin:auto;}
+#menu {
+margin:0;
+padding:0;
+background: grey;
+}
+#menu li { list-style:none; display:inline-block;}
+#menu a {display:inline-block; padding:5px 15px; text-decoration:none; font-weight:bold; color:black;}
+#menu a:hover{ color: white;}
+.post{ margin-top:20px;}
+
+#content {
+background:white; padding:20px;
+}
+
+pre {
+    white-space: pre-wrap;       /* CSS 3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+ font-family: "Times New Roman", Times, serif;
+}
+
+.comment {
+	border: solid grey 1px;
+	margin:5px 0;
+	padding:5px;
+}
+

@@ -1,0 +1,45 @@
+U: iamadmin
+P: admin
+saab postitada
+
+U: kirjanik	
+P: eepos
+saab postitada
+
+U: uus
+P: uus
+ei saa postitada(, aga saab kommenteerida)
+
+
+0. viimased postitused fix - done
+1. postituse juures olevad kommentaarid - done
+2. postituse lehel kommentaaride arv
+3. postituse edit
+
+postituse vaatamine: mis teha kui kasutajal pole postitusi või kasutajat ennast ei eksisteeri
+
+
+
+
+
+
+$title= "a'la loomad";
+
+UPDATE Bpostitused SET title='$title', content='$content' WHERE id=$id
+OHTLIK:
+UPDATE Bpostitused SET title='a'la loomad', content='$content' WHERE id=$id
+
+$title=mysqli_real_escape_string($L, $title); 
+TURVALINE:
+UPDATE Bpostitused SET title='a\'la loomad', content='$content' WHERE id=$id
+
+
+
+
+
+
+
+
+
+
+

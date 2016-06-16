@@ -1,0 +1,10 @@
+<?php if(!empty($loom)):?>
+
+<h3><?php echo $loom['nimi'];?></h3>
+
+<img src="<?php echo $loom['pilt'];?>" alt="<?php echo $loom['nimi'];?>">
+
+<br/>
+<b>Treener_id:</b> <?php echo $loom['treener_id'];?><br/>
+<b>Oskused:</b> <?php echo htmlspecialchars($loom['oskused']);?>
+<?php endif; ?>

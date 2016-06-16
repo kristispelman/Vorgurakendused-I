@@ -1,0 +1,16 @@
+<?php if (!empty($postitused)): 
+	foreach($postitused as $post):
+?>
+<div class="post">
+<a href="?page=post&id=<?php echo htmlspecialchars($post['id']);?>">
+	<?php echo htmlspecialchars($post['title']);?>
+</a> 
+kasutaja 
+<a href="?page=posts&user=<?php echo htmlspecialchars($post['postitaja']);?>"><?php echo htmlspecialchars($post['postitaja']);?>
+</a>
+ poolt.
+</div>
+
+<?php endforeach; 
+	endif;
+?>

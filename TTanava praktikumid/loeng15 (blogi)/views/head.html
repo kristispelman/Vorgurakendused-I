@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>minu blogi</title>
+		<style>
+		#wrap{ width:800px; margin:auto;}
+		#menu li { list-style:none; display:inline-block;}
+		.post{ margin-top:20px;}
+		</style>
+	</head>
+	<body>
+	<div id="wrap">
+	<ul id="menu">
+		<li><a href="?">pealeht</a></li>
+		<?php if(empty($_SESSION['user'])): ?>
+			<li><a href="?page=register">registreeru</a></li>
+			<li><a href="?page=login">logi sisse</a></li>
+		<?php else: ?>
+		<li><a href="?page=postit">Postita midagi</a></li>
+			<li><a href="?page=logout">logi välja</a></li>
+			<?php endif;?>
+	</ul>
+	<div id="content">
+	
+<?php if(!empty($_SESSION['message'])): ?>
+		<p style="color:red"><?php echo $_SESSION['message']; ?></p>
+<?php unset($_SESSION['message']);
+endif;?>
