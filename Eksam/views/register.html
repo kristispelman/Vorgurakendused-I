@@ -1,0 +1,15 @@
+﻿<form action="?page=register" method="POST">
+<input type="text" placeholder="kasutajanimi" name="username" value="<?php if (!empty($_POST['username'])) echo htmlspecialchars($_POST['username']);?>"/><br/>
+
+<input type="password" placeholder="parool" name="passwd"/><br/>
+
+<input type="password" placeholder="parool uuesti" name="passwd2" /><br/><br/>
+
+<input type="submit" value="Registreeri"/>
+</form>
+
+<?php if(!empty($errors)):
+	foreach($errors as $e):?>
+		<p style="color:red"><?php echo $e; ?></p>
+<?php	endforeach;
+endif;?>

@@ -1,0 +1,12 @@
+<?php if (!empty($postitused)): 
+	foreach($postitused as $post):
+?>
+<div class="post">
+<a href="?page=post&id=<?php echo htmlspecialchars($post['id']);?>">
+	<?php echo htmlspecialchars($post['title']);?>
+</a> 
+</div>
+
+<?php endforeach; 
+	endif;
+?>

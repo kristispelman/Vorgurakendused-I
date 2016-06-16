@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Minu märkmed</title>
+		<style>
+			#menyy{ 
+				width:1000px; 
+				margin:auto;
+			}
+			#plokk li { 
+				list-style:none; display:inline-block;
+			}
+		</style>
+	</head>
+	<body>
+	<div id="menyy">
+	<ul id="plokk">
+		<li><a href="?">AVALEHT</a></li>
+		<?php if(empty($_SESSION['user'])): ?>
+			<li><a href="?page=register">REGISTREERI</a></li>
+			<li><a href="?page=login">LOGI SISSE</a></li>
+		<?php else: ?>
+		<li><a href="?page=postit">POSTITA</a></li>
+			<li><a href="?page=logout">LOGI VÄLJA</a></li>
+			<?php endif;?>
+	</ul>
+	<div id="content">
+	
+<?php if(!empty($_SESSION['message'])): ?>
+		<p style="color:red"><?php echo $_SESSION['message']; ?></p>
+<?php unset($_SESSION['message']);
+endif;?>
